@@ -24,7 +24,7 @@ export default function AuthCallbackPage() {
             localStorage.setItem("user_email", searchParams.get("email") || "");
 
             // Перенаправляем на дашборд
-            router.push("/dashboard");
+            router.push("/telegram");
         } else {
             router.push("/auth?error=Не вдалося отримати токен доступу");
         }
