@@ -46,10 +46,9 @@ export function usePremiumPayment() {
 
         try {
             setIsLoading(true);
-            const response = await fetch("https://api.monobank.ua/api/merchant/invoice/create", {
+            const response = await fetch("/api/create-payment", {
                 method: "POST",
                 headers: {
-                    "X-Token": TOKEN, // ❗ Заменить на защищённый токен из .env
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(body),
