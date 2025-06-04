@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = 'force-dynamic';
 import { useEffect, useState } from "react";
 import ModeCards from "@/app/dashboard/components/ModeCards";
 import Navbar from "@/app/dashboard/components/Navbar";

@@ -1,6 +1,6 @@
 // src/app/tests/favorites/page.tsx
-export const dynamic = 'force-dynamic';
 "use client";
+export const dynamic = 'force-dynamic';
 
 import { useEffect, useState } from "react";
 import { Question, TestConfig } from "@/app/themes/types";
