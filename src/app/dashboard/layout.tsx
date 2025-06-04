@@ -1,12 +1,6 @@
-import AuthGuard from "@/app/components/AuthGuard";
-import SubscriptionDialog from "@/app/components/SubscriptionDialog";
-import {Providers} from "@/app/providers";
-import {SessionProvider} from "next-auth/react";
+// ✅ layout.tsx (серверный, как есть)
+import ClientLayoutWrapper from "./ClientLayoutWrapper";
 
-export default function DashboardLayout({
-                                            children,
-                                        }: {
-    children: React.ReactNode;
-}) {
-    return <SessionProvider><Providers><AuthGuard>{children}<SubscriptionDialog/></AuthGuard></Providers></SessionProvider>;
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+    return <ClientLayoutWrapper>{children}</ClientLayoutWrapper>;
 }
