@@ -7,8 +7,6 @@ import UserProgress from "@/app/dashboard/components/UserProgress";
 import UserDetailedStats from "@/app/dashboard/components/UserDetailedStats";
 import Footer from "@/app/components/FooterSection";
 
-import DashboardPage from "@/app/dashboard/page";
-
 export default function DashboardPage() {
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
