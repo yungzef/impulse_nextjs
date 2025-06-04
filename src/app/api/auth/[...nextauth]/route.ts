@@ -1,27 +1,31 @@
-import NextAuth, {NextAuthOptions} from "next-auth";
+import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const URL = process.env.NEXT_PUBLIC_URL;
 
-export const authOptions: NextAuthOptions = {
+const handler = NextAuth({
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
         }),
     ],
     session: {
-        strategy: "jwt", // либо "database" — зависит от вашей конфигурации
+        strategy: "jwt",
     },
     callbacks: {
-        async jwt({token, user, account, profile}) {
+        async jwt({ token, user }) {
             if (user) {
                 token.id = user.id;
-                // Add subscription status from your API
-                const res = await fetch(`${URL}/premium/status?user_id=${user.id}`);
-                const data = await res.json();
-                token.subscription = data.is_active;
+
+                try {
+                    const res = await fetch(`${URL}/premium/status?user_id=${user.id}`);
+                    const data = await res.json();
+                    token.subscription = data.is_active;
+                } catch (e) {
+                    token.subscription = false;
+                }
             }
             return token;
         },
@@ -29,11 +33,9 @@ export const authOptions: NextAuthOptions = {
             (session.user as any).id = token.id;
             (session.user as any).subscription = token.subscription;
             return session;
-        }
-
+        },
     },
-    secret: "process.env.NEXTAUTH_SECRET",
-};
+    secret: process.env.NEXTAUTH_SECRET,
+});
 
-const handler = NextAuth(authOptions);
-export {handler as GET, handler as POST};
+export { handler as GET, handler as POST };
