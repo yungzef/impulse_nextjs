@@ -20,7 +20,7 @@ const handler = NextAuth({
                 token.id = user.id;
 
                 try {
-                    const res = await fetch(`${URL}/premium/status?user_id=${user.id}`);
+                    const res = await fetch(`${API_URL}/premium/status?user_id=${user.id}`);
                     const data = await res.json();
                     token.subscription = data.is_active;
                 } catch (e) {
