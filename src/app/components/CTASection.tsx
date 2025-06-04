@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CTASection() {
     return (
         <section className="bg-base-200 py-20 text-center">
@@ -8,7 +10,7 @@ export default function CTASection() {
                 <p className="text-lg md:text-xl mb-8">
                     Ми підготуємо тебе не просто до тесту, а до успішної здачі! Зрозумілі пояснення, AI-підтримка та інтерфейс, який працює на тебе.
                 </p>
-                <button className="btn btn-success btn-lg text-lg shadow-lg">Зареєструватися зараз</button>
+                <Link href="/tiktok-warning" className="btn btn-success btn-lg text-lg shadow-lg">Зареєструватися зараз</Link>
             </div>
         </section>
     );

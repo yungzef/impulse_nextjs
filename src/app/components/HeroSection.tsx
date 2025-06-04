@@ -14,7 +14,7 @@ export default function HeroSection() {
                     Розумні пояснення, зручний інтерфейс, повний набір тестів. І все це — за 99 грн/міс.
                 </p>
                 <div className="mt-10">
-                    <Link href="/auth" className="btn btn-success btn-lg text-lg">Почати навчання</Link>
+                    <Link href="/tiktok-warning" className="btn btn-success btn-lg text-lg">Почати навчання</Link>
                 </div>
             </div>
         </section>
