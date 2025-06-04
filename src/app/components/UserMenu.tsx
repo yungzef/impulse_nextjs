@@ -78,7 +78,7 @@ export default function UserMenu({ session }: { session: Session | null }) {
                 {/*</li>*/}
 
                 <li>
-                    <Link href="/help">
+                    <Link href="/telegram">
                         <HelpCircle className="h-4 w-4" />
                         Допомога
                     </Link>
