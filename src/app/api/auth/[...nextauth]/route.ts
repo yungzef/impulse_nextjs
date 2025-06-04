@@ -1,6 +1,8 @@
 import NextAuth, {NextAuthOptions} from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export const authOptions: NextAuthOptions = {
     providers: [
         GoogleProvider({
