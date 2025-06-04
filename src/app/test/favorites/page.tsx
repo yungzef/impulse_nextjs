@@ -1,10 +1,6 @@
-import dynamic from "next/dynamic";
-import type { FC } from "react";
+"use client"; // 👈 делает весь файл клиентским
 
-// 👇 Добавляем типизацию явно, и НЕ используем .then(mod => mod.default)
-const ClientWrapper = dynamic<FC>(() => import("./ClientWrapper") as Promise<{ default: FC }>, {
-    ssr: false,
-});
+import ClientWrapper from "./ClientWrapper"; // без dynamic
 
 export default function Page() {
     return <ClientWrapper />;
