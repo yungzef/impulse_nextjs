@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
+    productionBrowserSourceMaps: true,
 }
 
 // 👇 redirects отдельно!
