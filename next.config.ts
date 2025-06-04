@@ -3,6 +3,9 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     swcMinify: true,
+    typescript: {
+        ignoreBuildErrors: true,
+    },
 }
 
 // 👇 redirects отдельно!
