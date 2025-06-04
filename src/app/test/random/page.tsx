@@ -1,11 +1,6 @@
-import dynamic from "next/dynamic";
-import type { FC } from "react";
-
-// ⬇️ добавляем точную аннотацию и каст
-const ClientWrapper = dynamic(() => import("./ClientWrapper") as Promise<{ default: FC }>, {
-    ssr: false,
-});
+// ✅ СЕРВЕРНЫЙ page.tsx
+import ClientLoader from "./ClientLoader";
 
 export default function Page() {
-    return <ClientWrapper />;
+    return <ClientLoader />;
 }
