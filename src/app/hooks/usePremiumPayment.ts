@@ -9,7 +9,7 @@ interface PlanMeta {
 }
 
 const PLAN_CONFIG: Record<PlanId, PlanMeta> = {
-    week: { amount: 3, durationDays: 7, description: "Тижневий доступ" },
+    week: { amount: 1_00, durationDays: 7, description: "Тижневий доступ" },
     monthly: { amount: 9900, durationDays: 30, description: "Місячний доступ" },
     "3months": { amount: 19900, durationDays: 120, description: "3 місяці доступу (+1 у подарунок)" },
 };
