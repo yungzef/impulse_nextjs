@@ -16,6 +16,7 @@ const PLAN_CONFIG: Record<PlanId, PlanMeta> = {
 
 const isProd = process.env.NODE_ENV === "production";
 const TOKEN = process.env.TOKEN;
+const URL = process.env.NEXT_PUBLIC_URL;
 
 export function usePremiumPayment() {
     const [isLoading, setIsLoading] = useState(false);

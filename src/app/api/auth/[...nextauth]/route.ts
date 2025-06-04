@@ -2,6 +2,7 @@ import NextAuth, {NextAuthOptions} from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const URL = process.env.NEXT_PUBLIC_URL;
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -18,7 +19,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.id = user.id;
                 // Add subscription status from your API
-                const res = await fetch(`http://localhost:3000/premium/status?user_id=${user.id}`);
+                const res = await fetch(`${URL}/premium/status?user_id=${user.id}`);
                 const data = await res.json();
                 token.subscription = data.is_active;
             }
