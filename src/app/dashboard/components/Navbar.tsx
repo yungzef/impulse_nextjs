@@ -4,7 +4,11 @@ import {LayoutDashboard, UserCircle} from "lucide-react";
 import SearchBar from "@/app/components/SearchBar";
 import UserMenu from "@/app/components/UserMenu";
 
-export default function Navbar({session, onSearch}: { session: any; onSearch: (query: string) => void }) {
+import { useSession } from "next-auth/react";
+
+const { data: session } = useSession();
+
+export default function Navbar() {
     return (
         <div className="navbar backdrop-blur-xl bg-base-100/01 shadow-md sticky top-0 z-50 px-4">
             <div className="flex-1">
@@ -33,17 +37,11 @@ export default function Navbar({session, onSearch}: { session: any; onSearch: (q
                         className="btn btn-ghost btn-circle avatar"
                     >
                         <div className="w-10 rounded-full">
-                            {session?.user?.image ? (
-                                <img
-                                    src={session.user.image}
-                                    alt="User Avatar"
-                                    referrerPolicy="no-referrer"
-                                />
-                            ) : (
+                            (
                                 <div className="bg-neutral text-neutral-content flex items-center justify-center w-full h-full">
                                     <UserCircle className="w-6 h-6" />
                                 </div>
-                            )}
+                            )
                         </div>
                     </div>
 

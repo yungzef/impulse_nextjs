@@ -21,7 +21,7 @@ export default function DashboardPage() {
 
     return (
         <div className="min-h-screen bg-base-100 flex flex-col">
-            <Navbar />
+            <Navbar/>
             <HeroSection name={userName} />
 
             {/* ⬇️ Только когда userId есть */}
