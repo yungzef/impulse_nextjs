@@ -1,5 +1,5 @@
 // src/app/tests/random/page.tsx
-
+export const dynamic = 'force-dynamic';
 "use client";
 
 import {useEffect, useState} from "react";

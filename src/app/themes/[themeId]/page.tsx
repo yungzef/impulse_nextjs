@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = 'force-dynamic';
 import {useState, useEffect} from 'react';
 import {useParams} from 'next/navigation';
 import {Question, TestConfig} from '@/app/themes/types';

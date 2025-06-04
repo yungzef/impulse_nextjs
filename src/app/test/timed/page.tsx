@@ -1,6 +1,6 @@
 // src/app/tests/timed/page.tsx
 "use client";
-
+export const dynamic = 'force-dynamic';
 import { useEffect, useState } from "react";
 import { Question, TestConfig } from "@/app/themes/types";
 import TestCore from "@/app/themes/TestCore";
