@@ -10,7 +10,7 @@ import {
     Settings,
     HelpCircle,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import {usePremiumPayment} from "@/app/hooks/usePremiumPayment";
 import {useSubscriptionDialog} from "@/app/hooks/useSubscriptionDialog";
 
@@ -21,6 +21,18 @@ export default function UserMenu({ session }: { session: Session | null }) {
     const handleResetProgress = () => {
         resetDialogRef.current?.showModal();
     };
+
+    const [isPremium, setIsPremium] = useState<boolean | null>(null);
+
+    useEffect(() => {
+        const userId = localStorage.getItem("user_id");
+        if (!userId) return;
+
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/premium/status?user_id=${userId}`)
+            .then((res) => res.json())
+            .then((data) => setIsPremium(data.is_active))
+            .catch(() => setIsPremium(false));
+    }, []);
 
     return (
         <>
@@ -51,7 +63,7 @@ export default function UserMenu({ session }: { session: Session | null }) {
                     <button onClick={openSubscriptionDialog}>
                         <Crown className="h-4 w-4" />
                         <span>
-              Підписка: {session?.user?.subscription ? "Активна" : "Неактивна"}
+              Підписка: {isPremium ? "Активна" : "Неактивна"}
             </span>
                     </button>
                 </li>
