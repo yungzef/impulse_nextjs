@@ -139,7 +139,7 @@ export default function TestCore({questions, config, onComplete, errorStatus}: T
         const userId = localStorage.getItem("user_id");
         if (userId) {
             try {
-                await fetch('${API_URL}/user/answer', {
+                await fetch(`${API_URL}/user/answer`, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
@@ -327,7 +327,7 @@ export default function TestCore({questions, config, onComplete, errorStatus}: T
                         </button>
                         {isExplanationOpen && (
                             <div className="p-4 space-y-4">
-                                {/*<p className="text-base leading-relaxed">{currentQuestion.explanation || 'Пояснення відсутнє'}</p>*/}
+                                <p className="text-base leading-relaxed">{currentQuestion.explanation || 'Пояснення відсутнє'}</p>
 
                                 {aiExplanation && (
                                     <div className="bg-success/10 border-l-4 border-success px-4 py-3 rounded-md">
