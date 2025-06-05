@@ -145,7 +145,8 @@ export default function TestCore({questions, config, onComplete, errorStatus}: T
                     body: JSON.stringify({
                         user_id: userId,
                         question_id: question.id,
-                        is_correct: isCorrect
+                        is_correct: isCorrect,
+                        selected_index: normalizedSelected
                     })
                 });
             } catch (error) {
