@@ -6,6 +6,7 @@ export interface Question {
     explanation?: string;
     image?: string;
     was_answered_correctly?: boolean;
+    was_selected_index?: number;
     is_favorite?: boolean;
 }
 

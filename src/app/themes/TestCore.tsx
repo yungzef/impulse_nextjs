@@ -214,12 +214,15 @@ export default function TestCore({questions, config, onComplete, errorStatus}: T
             setAiExplanation(null);
             return;
         }
-        const restored: AnswerResult[] = (questions as (Question & { was_answered_correctly?: boolean })[])
+        const restored: AnswerResult[] = (questions as (Question & {
+            was_answered_correctly?: boolean;
+            was_selected_index?: number;
+        })[])
             .map((q) => {
                 if (q.was_answered_correctly == null) return null;
                 return {
                     questionId: q.id,
-                    selectedIndex: -1,
+                    selectedIndex: q.was_selected_index ?? -1,
                     isCorrect: q.was_answered_correctly,
                     timestamp: new Date().toISOString(),
                 };
